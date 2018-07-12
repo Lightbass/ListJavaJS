@@ -6,9 +6,6 @@
     <display-name>Archetype Created Web Application</display-name>
 
     <welcome-file-list>
-        <welcome-file>index1.html</welcome-file>
-        <welcome-file>index1.xhtml</welcome-file>
-        <welcome-file>index1.htm</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 

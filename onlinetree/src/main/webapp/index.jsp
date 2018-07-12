@@ -1,6 +1,6 @@
-<%@ page import = "com.fnoz.MainJSON" language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251"%>
+<%@ page import = "com.bass.onlinetree.MainJSON" language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251"%>
 
-<jsp:useBean id="calca" class="com.fnoz.MainJSON" scope="session"/>
+<jsp:useBean id="calca" class="com.bass.onlinetree.MainJSON" scope="session"/>
 <jsp:setProperty name="calca" property="*"/>
 
 
