@@ -10,14 +10,8 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.bass</groupId>
-    <artifactId>onlinetree</artifactId>
+    <artifactId>calcstring</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <distributionManagement>
         <repository>
@@ -28,13 +22,6 @@
     </distributionManagement>
 
     <packaging>war</packaging>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>tomcat8-maven-plugin</id>
-            <url>https://artifacts.alfresco.com/nexus/content/groups/public/</url>
-        </pluginRepository>
-    </pluginRepositories>
 
     <dependencies>
         <dependency>
@@ -67,11 +54,6 @@
             <version>3.20.0</version>
         </dependency>
         <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.1-901-1.jdbc4</version>
-        </dependency>
-        <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20170516</version>
@@ -79,7 +61,7 @@
     </dependencies>
 
     <build>
-        <finalName>web_first</finalName>
+        <finalName>calc</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -97,7 +79,7 @@
                 <configuration>
                     <server>apache-tomcat</server>
                     <url>http://127.0.0.1:8080/manager/text</url>
-                    <path>/java</path>
+                    <path>/calc</path>
                     <username>user3</username>
                     <password>secret</password>
                 </configuration>
@@ -107,10 +89,11 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>2.0.3</version>
                 <configuration>
-                    <appName>calcstring</appName>
+                    <appName>stringcalc</appName>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 
 </project>

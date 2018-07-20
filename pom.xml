@@ -10,6 +10,7 @@
         <module>filemanager</module>
         <module>studiomobile</module>
         <module>onlinetree</module>
+        <module>calcstring</module>
     </modules>
 
     <properties>
@@ -99,9 +100,6 @@
             </plugin>
         </plugins>
     </build>
-
-
-
 </project>
 
 

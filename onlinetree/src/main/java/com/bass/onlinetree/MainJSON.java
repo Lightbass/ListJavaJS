@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -23,19 +24,26 @@ import java.sql.SQLException;
 @WebServlet("/json")
 public class MainJSON extends HttpServlet{
 
+    ManageBase base;
+
     public MainJSON(){
-        try {
-            ManageBase.baseInit();
-            ManageBase.CreateDB();
-        }
-        catch (Exception e){
-            System.out.println("SOME TROUBLE " + e.getLocalizedMessage());
-            e.printStackTrace();
-        }
+        System.out.println("MainJSON()");
+
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        if(base == null)
+            try {
+                base = new ManageBase(request.getServletPath());
+                base.baseInit();
+                base.CreateDB();
+            }
+            catch (Exception e){
+                System.out.println("SOME TROUBLE " + e.getLocalizedMessage());
+                e.printStackTrace();
+            }
+
         String load = request.getParameter("load");
         try{
             Thread.sleep(2000);}
@@ -48,7 +56,7 @@ public class MainJSON extends HttpServlet{
             PrintWriter out = response.getWriter();
             JSONArray json;
             try {
-                json = ManageBase.ReadDBJSON(load);
+                json = base.ReadDBJSON(load);
                 out.print(json.toString());
             }
             catch(Exception e){
@@ -71,7 +79,7 @@ public class MainJSON extends HttpServlet{
                 parent = jsonNew.getString("parent");
                 if(parent.equals("#"))
                     parent = "root";
-                ManageBase.WriteDB(id, parent, text, children);
+                base.WriteDB(id, parent, text, children);
             }
             catch (Exception sqle){
 
@@ -81,12 +89,11 @@ public class MainJSON extends HttpServlet{
         json = request.getParameter("delete");
         if(json != null){
             try {
-                ManageBase.DeleteDB(json);
+                base.DeleteDB(json);
             }
             catch(SQLException sqle){
                 sqle.printStackTrace();
             }
         }
     }
-
 }

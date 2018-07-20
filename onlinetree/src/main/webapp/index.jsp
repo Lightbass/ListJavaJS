@@ -10,7 +10,6 @@
         <head>
             <title> Tree </title>
         </head>
-        <h2> Tree </h2>
         <div id="lazy"></div>
         <script src="dist/jquery-3.2.1.min.js"></script>
         <script src="dist/jstree.min.js"></script>
