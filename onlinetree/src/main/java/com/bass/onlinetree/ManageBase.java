@@ -1,12 +1,15 @@
 package com.bass.onlinetree;
 
-import javafx.application.Application;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by a.makarov on 08.08.2017.
